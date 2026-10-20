@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.3
+
+- Replace the circular backdrop with a glow that follows each cursor silhouette.
+- Tune glow width per role, including narrower resize/move glows and softer text/ring glows.
+- Blend purple outer light with a pale lilac inner glow for a subtle luminous appearance.
+- Preserve white borders, rounded geometry, hotspots and animated frames.
+- Include dark and light previews.
+
+
 ## 1.2.2
 
 - Use a circular purple light field with smooth radial falloff instead of a canvas-shaped blur.
