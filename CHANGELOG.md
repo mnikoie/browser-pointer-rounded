@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.2
+
+- Use a circular purple light field with smooth radial falloff instead of a canvas-shaped blur.
+- Add a soft pale inner glow near the white border.
+- Remove visible square edges while preserving pointer geometry, hotspots and animations.
+- Regenerate all Windows CUR/ANI resources and the macOS HiDPI cape from the same artwork.
+
+
 ## 1.2.1
 
 - Widen the purple halo with a smoother, more transparent falloff.

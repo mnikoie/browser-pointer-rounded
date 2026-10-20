@@ -67,19 +67,22 @@ def cursor(kind, size=64, phase=0):
     elif kind=='Alternate':poly([(32,10),(47,29),(36,29),(36,51),(28,51),(28,29),(17,29)])
     elif kind=='Link':
         poly([(22,35),(22,13),(24,10),(28,10),(30,13),(30,29),(33,27),(37,28),(39,30),(43,30),(46,33),(50,34),(51,38),(49,48),(43,54),(29,54),(24,49),(13,35),(13,31),(17,30)])
-    # Composite a soft purple halo underneath the original sharp artwork.
+    # Use a radial light field, independent of the square cursor canvas.
     alpha=im.getchannel('A')
-    broad=alpha.filter(ImageFilter.GaussianBlur(5.5*S)).point(lambda a: round(a*.62))
-    near=alpha.filter(ImageFilter.GaussianBlur(2.0*S)).point(lambda a: round(a*.28))
-    # Fade out before the resource boundary rather than clipping the soft halo.
-    for mask in (broad,near):
-        px=mask.load(); w,h=mask.size
-        for y in range(h):
-            for x in range(w):
-                t=min(1.,min(x,y,w-1-x,h-1-y)/(4*S))
-                px[x,y]=round(px[x,y]*t*t*(3-2*t))
-    glow=Image.new('RGBA',im.size,(151,78,238,0));glow.putalpha(broad)
-    rim=Image.new('RGBA',im.size,(178,108,255,0));rim.putalpha(near)
+    left,top,right,bottom=alpha.getbbox()
+    cx=(left+right-1)/2; cy=(top+bottom-1)/2
+    radius=min(cx,cy,im.width-1-cx,im.height-1-cy)-S
+    broad=Image.new('L',im.size,0)
+    near=alpha.filter(ImageFilter.GaussianBlur(3.5*S)).point(lambda a: round(a*.43))
+    outer=broad.load(); inner=near.load()
+    for y in range(im.height):
+        for x in range(im.width):
+            r=math.hypot(x-cx,y-cy)/radius
+            outer[x,y]=round(110*max(0.,1-r*r)**2)
+            t=max(0.,min(1.,(1-r)/.30))
+            inner[x,y]=round(inner[x,y]*t*t*(3-2*t))
+    glow=Image.new('RGBA',im.size,(116,65,224,0));glow.putalpha(broad)
+    rim=Image.new('RGBA',im.size,(213,201,255,0));rim.putalpha(near)
     im=Image.alpha_composite(Image.alpha_composite(glow,rim),im)
     return im.resize((size,size),Image.Resampling.LANCZOS)
 
