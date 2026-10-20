@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1
+
+- Widen the purple halo with a smoother, more transparent falloff.
+- Soften the inner glow and fade before canvas edges to avoid clipping.
+
 ## 1.2.0
 
 - Add a soft purple halo to all Windows and macOS cursor roles and animation frames.

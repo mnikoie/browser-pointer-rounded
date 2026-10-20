@@ -69,8 +69,15 @@ def cursor(kind, size=64, phase=0):
         poly([(22,35),(22,13),(24,10),(28,10),(30,13),(30,29),(33,27),(37,28),(39,30),(43,30),(46,33),(50,34),(51,38),(49,48),(43,54),(29,54),(24,49),(13,35),(13,31),(17,30)])
     # Composite a soft purple halo underneath the original sharp artwork.
     alpha=im.getchannel('A')
-    broad=alpha.filter(ImageFilter.GaussianBlur(2.4*S)).point(lambda a: round(a*.52))
-    near=alpha.filter(ImageFilter.GaussianBlur(.85*S)).point(lambda a: round(a*.62))
+    broad=alpha.filter(ImageFilter.GaussianBlur(5.5*S)).point(lambda a: round(a*.62))
+    near=alpha.filter(ImageFilter.GaussianBlur(2.0*S)).point(lambda a: round(a*.28))
+    # Fade out before the resource boundary rather than clipping the soft halo.
+    for mask in (broad,near):
+        px=mask.load(); w,h=mask.size
+        for y in range(h):
+            for x in range(w):
+                t=min(1.,min(x,y,w-1-x,h-1-y)/(4*S))
+                px[x,y]=round(px[x,y]*t*t*(3-2*t))
     glow=Image.new('RGBA',im.size,(151,78,238,0));glow.putalpha(broad)
     rim=Image.new('RGBA',im.size,(178,108,255,0));rim.putalpha(near)
     im=Image.alpha_composite(Image.alpha_composite(glow,rim),im)

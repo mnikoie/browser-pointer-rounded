@@ -1,6 +1,6 @@
 # Browser Pointer Rounded
 
-A rounded cursor theme for **Windows and macOS**: dark pointers, soft corners, a white border and a soft purple halo (v1.2.0). Includes installers, animated busy cursors and restore instructions.
+A rounded cursor theme for **Windows and macOS**: dark pointers, soft corners, a white border and a soft purple halo (v1.2.1). Includes installers, animated busy cursors and restore instructions.
 
 **[Download for Windows](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-Windows.zip)** · **[Download for Mac — PKG](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-macOS.pkg)** · **[Mac ZIP](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-macOS.zip)** · **[فارسی](#فارسی)**
 
