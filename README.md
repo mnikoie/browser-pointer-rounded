@@ -26,6 +26,8 @@ macOS contains 14 corresponding roles mapped to 39 cursor identifiers, including
 
 `tools/validate_macos.py` verifies plist contents, PNG dimensions and alpha, hotspot bounds and animation diversity. GitHub Actions validates the cape and shell syntax on a macOS runner and builds the PKG/DMG. These checks do not replace interactive testing of cursor appearance in applications; actual activation has not been tested on a personal Mac.
 
+Windows install and restore logic is checked with `tools/test_windows.ps1` using an isolated registry key. To validate the installer without changing your pointer, run `powershell.exe -NoProfile -File Windows/Install.ps1 -WhatIf` from the source checkout. See [CHANGELOG.md](CHANGELOG.md) for fixes.
+
 ## Rebuild the macOS cape
 
 ```sh

@@ -1,0 +1,25 @@
+name: Validate cursor pack
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test Windows backup, restore and manifest validation
+        shell: powershell
+        run: ./tools/test_windows.ps1
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==12.3.0
+      - run: python tools/validate_macos.py
+      - run: bash -n macOS/Install.command && bash -n macOS/Restore.command && bash -n tools/package_macos.sh
