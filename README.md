@@ -1,12 +1,14 @@
 # Browser Pointer Rounded
 
-A compact dark pointer with rounded corners, a white border and a fine blue edge. Includes Windows and macOS versions of the same approved design.
+A rounded cursor theme for **Windows and macOS**: dark pointers, soft corners, a white border and a fine blue edge. Includes installers, animated busy cursors and restore instructions.
+
+**[Download for Windows](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-Windows.zip)** · **[Download for Mac — PKG](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-macOS.pkg)** · **[Mac ZIP](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-macOS.zip)** · **[فارسی](#فارسی)**
 
 ![Cursor preview](Preview.png)
 
 ## Download
 
-Use the files in [Releases](../../releases/latest).
+Use the files in [Releases](https://github.com/mnikoie/browser-pointer-rounded/releases/latest). Download the installer for your operating system; GitHub's **Code → Download ZIP** contains source files rather than the packaged release.
 
 - **Windows:** extract `Browser-Pointer-Rounded-Windows.zip` and run `Install.cmd`. Use `Restore.cmd` to restore your previous configuration.
 - **macOS 14+:** extract `Browser-Pointer-Rounded-macOS.zip`, then double-click `Install.command`. It downloads Mousecape from its upstream release, verifies the SHA-256, and opens the cape. Select **Browser Pointer Rounded → Apply** in Mousecape.
@@ -34,4 +36,15 @@ python tools/validate_macos.py
 
 The geometry source is `tools/artwork.py`. Mousecape format and cursor identifiers were checked against upstream `MCDefs.m` and `apply.m`. No third-party Mousecape source or executable is bundled here.
 
-راهنمای فارسی نصب در فایل `macOS/README-fa.txt` موجود است.
+## Feedback
+
+[Report a problem](https://github.com/mnikoie/browser-pointer-rounded/issues/new?template=bug_report.yml) or [suggest a change](https://github.com/mnikoie/browser-pointer-rounded/issues/new?template=feature_request.md). Include your operating system version, cursor role, display scaling and a screenshot when relevant. Reports in Persian and English are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for artwork and validation instructions.
+
+## فارسی
+
+پک نشانگر با گوشه‌های گرد برای ویندوز و مک، همراه نصب‌کننده و حالت انتظار متحرک.
+
+- **ویندوز:** [دانلود ZIP ویندوز](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-Windows.zip)، استخراج و اجرای `Install.cmd`. بازگشت به نشانگر قبلی با `Restore.cmd`.
+- **مک ۱۴ و جدیدتر:** [دانلود نصب‌کننده PKG](https://github.com/mnikoie/browser-pointer-rounded/releases/latest/download/Browser-Pointer-Rounded-macOS.pkg)، نصب و اجرای **Browser Pointer Rounded** از Applications؛ سپس انتخاب پک و زدن **Apply** در Mousecape.
+- **راهنمای کامل مک:** [نصب و بازگردانی](macOS/README-fa.txt).
+- **گزارش مشکل یا پیشنهاد:** [Issues](https://github.com/mnikoie/browser-pointer-rounded/issues). لطفاً نسخه سیستم‌عامل و اندازه نمایشگر یا درصد مقیاس را بنویسید.

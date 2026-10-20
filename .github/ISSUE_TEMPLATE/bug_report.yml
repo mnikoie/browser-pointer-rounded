@@ -1,0 +1,27 @@
+name: Bug report / گزارش مشکل
+description: A cursor, installation or restore problem / مشکل نشانگر یا نصب
+body:
+  - type: input
+    id: system
+    attributes:
+      label: Operating system and version / سیستم‌عامل و نسخه
+      placeholder: Windows 11 24H2 or macOS 15.7
+    validations:
+      required: true
+  - type: input
+    id: install
+    attributes:
+      label: Release and installer / نسخه پک و روش نصب
+      placeholder: v1.1.0 — Windows CMD, macOS PKG, DMG or ZIP
+  - type: input
+    id: display
+    attributes:
+      label: Display scaling and cursor role / مقیاس نمایشگر و حالت نشانگر
+      placeholder: 150%, normal pointer / Retina 2x, text cursor
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened? / چه مشکلی پیش آمد؟
+      description: Include steps, expected behavior and a screenshot if useful. / مراحل و نتیجه مورد انتظار را بنویسید.
+    validations:
+      required: true
