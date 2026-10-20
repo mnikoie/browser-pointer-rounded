@@ -1,4 +1,4 @@
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 from pathlib import Path
 import math
 
@@ -67,6 +67,13 @@ def cursor(kind, size=64, phase=0):
     elif kind=='Alternate':poly([(32,10),(47,29),(36,29),(36,51),(28,51),(28,29),(17,29)])
     elif kind=='Link':
         poly([(22,35),(22,13),(24,10),(28,10),(30,13),(30,29),(33,27),(37,28),(39,30),(43,30),(46,33),(50,34),(51,38),(49,48),(43,54),(29,54),(24,49),(13,35),(13,31),(17,30)])
+    # Composite a soft purple halo underneath the original sharp artwork.
+    alpha=im.getchannel('A')
+    broad=alpha.filter(ImageFilter.GaussianBlur(2.4*S)).point(lambda a: round(a*.52))
+    near=alpha.filter(ImageFilter.GaussianBlur(.85*S)).point(lambda a: round(a*.62))
+    glow=Image.new('RGBA',im.size,(151,78,238,0));glow.putalpha(broad)
+    rim=Image.new('RGBA',im.size,(178,108,255,0));rim.putalpha(near)
+    im=Image.alpha_composite(Image.alpha_composite(glow,rim),im)
     return im.resize((size,size),Image.Resampling.LANCZOS)
 
 

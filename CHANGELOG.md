@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0
+
+- Add a soft purple halo to all Windows and macOS cursor roles and animation frames.
+- Preserve rounded geometry, white borders, hotspots and resource sizes.
+- Add a reproducible Windows asset builder using the shared artwork source.
+- Link the project introduction on DEV.
+
 ## 1.1.1
 
 - Validate the complete Windows cursor manifest and required files before writing settings.
