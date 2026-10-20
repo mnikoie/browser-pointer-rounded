@@ -1,0 +1,17 @@
+{
+  "Arrow": "Normal.cur",
+  "Help": "Help.cur",
+  "AppStarting": "Working.ani",
+  "Wait": "Busy.ani",
+  "Crosshair": "Precision.cur",
+  "IBeam": "Text.cur",
+  "NWPen": "Handwriting.cur",
+  "No": "Unavailable.cur",
+  "SizeNS": "Vertical.cur",
+  "SizeWE": "Horizontal.cur",
+  "SizeNWSE": "Diagonal-1.cur",
+  "SizeNESW": "Diagonal-2.cur",
+  "SizeAll": "Move.cur",
+  "UpArrow": "Alternate.cur",
+  "Hand": "Link.cur"
+}
