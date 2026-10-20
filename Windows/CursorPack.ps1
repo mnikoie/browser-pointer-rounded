@@ -26,7 +26,7 @@ function Set-CursorSnapshot {
 }
 function Update-SystemCursors {
     if (!('BrowserPointer.CursorRefresh' -as [type])) {
-        Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; namespace BrowserPointer { public class CursorRefresh { [DllImport("user32.dll", SetLastError=true)] public static extern bool SystemParametersInfo(uint action,uint param,IntPtr value,uint flags); } }'
+        Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; namespace BrowserPointer { public class CursorRefresh { [DllImport("user32.dll", EntryPoint="SystemParametersInfoW", SetLastError=true)] public static extern bool SystemParametersInfo(uint action,uint param,IntPtr value,uint flags); } }'
     }
-    if (![BrowserPointer.CursorRefresh]::SystemParametersInfo(0x57,0,[IntPtr]::Zero,3)) { throw 'Windows could not refresh the cursor scheme.' }
+    if (![BrowserPointer.CursorRefresh]::SystemParametersInfo(0x57,0,[IntPtr]::Zero,0)) { throw 'Windows could not refresh the cursor scheme.' }
 }
